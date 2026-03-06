@@ -12,7 +12,7 @@ public class Main {
         double principal;
         double rate;
         int years;
-        final byte MONTHS = 12;
+        final byte MONTHS_IN_YEAR = 12;
         final byte PERCENTAGE = 100;
 
         while (true) {
@@ -33,9 +33,10 @@ public class Main {
                 System.out.println("Please enter a number between 0 to 30");
                 continue;
             }
-            rate = (rate/ PERCENTAGE) / MONTHS;
             break;
         }
+
+        rate = (rate/ PERCENTAGE) / MONTHS_IN_YEAR;
 
         while (true) {
             System.out.print("Period (Years): ");
@@ -44,16 +45,17 @@ public class Main {
                 System.out.println("Please enter a number between 0 to 30");
                 continue;
             }
-            years = years * MONTHS;
-            double formulaDep = Math.pow((1 + rate), years);
-
-            double result = principal * ((rate * (formulaDep))) / ((formulaDep - 1));
-
-            NumberFormat current = NumberFormat.getCurrencyInstance();
-            current.format(result);
-            System.out.println("Mortgage: " + current.format(result));
             break;
         }
+
+
+        years = years * MONTHS_IN_YEAR;
+        double compoundFactor = Math.pow((1 + rate), years);
+
+        double monthlyPayment = principal * (rate * (compoundFactor)) / (compoundFactor - 1);
+
+        NumberFormat current = NumberFormat.getCurrencyInstance();
+        System.out.println("Mortgage: " + current.format(monthlyPayment));
 
     }
 }
