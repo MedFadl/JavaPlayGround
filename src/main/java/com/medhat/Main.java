@@ -4,6 +4,8 @@ import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Main {
+    final static byte MONTHS_IN_YEAR = 12;
+    final static byte PERCENTAGE = 100;
 
     public static void main(String[] args) {
 
@@ -12,13 +14,12 @@ public class Main {
         double principal;
         double rate;
         int years;
-        final byte MONTHS_IN_YEAR = 12;
-        final byte PERCENTAGE = 100;
+        
 
         while (true) {
             System.out.print("Principal: ");
             principal = input.nextDouble();
-            if (principal < 1000 || principal > 100_000) {
+            if (principal < 1000 || principal > 1_000_000) {
 
                 System.out.println("Please enter a number between 1k to 1M!!");
                 continue;
@@ -35,8 +36,7 @@ public class Main {
             }
             break;
         }
-
-        rate = (rate/ PERCENTAGE) / MONTHS_IN_YEAR;
+        
 
         while (true) {
             System.out.print("Period (Years): ");
@@ -49,13 +49,17 @@ public class Main {
         }
 
 
-        years = years * MONTHS_IN_YEAR;
-        double compoundFactor = Math.pow((1 + rate), years);
-
-        double monthlyPayment = principal * (rate * (compoundFactor)) / (compoundFactor - 1);
-
         NumberFormat current = NumberFormat.getCurrencyInstance();
-        System.out.println("Mortgage: " + current.format(monthlyPayment));
+        System.out.println("Mortgage: " + current.format(monthlyPayment(rate,years,principal)));
+
+    }
+
+    static double monthlyPayment(double principal , double rate, int years) {
+        double annualInterestRate = (rate / PERCENTAGE) / MONTHS_IN_YEAR;
+        years = years * MONTHS_IN_YEAR;
+        double compoundFactor = Math.pow((1 + annualInterestRate), years);
+        return principal * (annualInterestRate * (compoundFactor)) / (compoundFactor - 1);
+
 
     }
 }
