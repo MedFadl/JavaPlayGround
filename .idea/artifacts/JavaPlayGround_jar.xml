@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JavaPlayGround:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JavaPlayGround_jar</output-path>
+    <root id="archive" name="JavaPlayGround.jar">
+      <element id="module-output" name="JavaPlayGround" />
+    </root>
+  </artifact>
+</component>
