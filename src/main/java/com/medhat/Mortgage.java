@@ -8,11 +8,13 @@ public class Mortgage {
     // Some variables and instances <3
     private static final byte MONTHS_IN_YEAR = 12;
     private static final byte PERCENTAGE = 100;
-    private final NumberFormat current = NumberFormat.getCurrencyInstance();
-    private final Scanner input = new Scanner(System.in);
+    private final Scanner input;
+    private final NumberFormat current;
 
     //Constructor
-    public  Mortgage(){
+    public  Mortgage(NumberFormat current , Scanner input){
+        this.input = input;
+        this.current = current;
         double principal = setValue("Principal: ", 1000, 1_000_000);
         double rate = setValue("Annual Interest Rate: ", 0, 30);
         int years = (int) setValue("Period (Years): ", 0, 30);
@@ -77,13 +79,12 @@ public class Mortgage {
         System.out.println("\n");
         System.out.println("MORTGAGE");
         System.out.println("------");
+        System.out.println(current.format(monthlyPayment(principal, annualInterestRate, months)));
 
         if(annualInterestRate != 0) {
-            System.out.println(current.format(monthlyPayment(principal, annualInterestRate, months)));
             System.out.println("PAYMENT SCHEDULE");
             System.out.println("------");
             System.out.println("\n");
-
             for (int i = 1; i <= months; i++) {
                 double powed = Math.pow((1 + annualInterestRate), months);
                 payment = principal * (powed - Math.pow((1 + annualInterestRate), i)) / (powed - 1);
@@ -101,4 +102,3 @@ public class Mortgage {
 
         }
     }
-}
