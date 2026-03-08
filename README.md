@@ -1,4 +1,13 @@
-# javaplayground
+# JavaPlayGround
+> **Note**
+>
+> This repository is **not about "vibe coding" or blindly generating code with AI**.
+>
+> I use AI as a **learning assistant** to understand concepts, review ideas, and improve my problem-solving skills ... not to automatically generate entire solutions.
+>
+> The goal of this playground is to **learn, experiment, and grow as a real back-end developer**, writing and understanding the code myself rather than outsourcing the thinking.
+>
+> If you're learning too, try to use AI as a **LEARNING ASSISTANT**, not to brain rot you :DDD.
 
 A personal Java playground where I explore backend development at my own pace.
 
@@ -91,4 +100,4 @@ As I continue learning, I plan to explore:
 
 ## Purpose
 
-This repository is mainly a **learning journal in code** — a place where I experiment, make mistakes, improve, and document my progress while moving toward professional Java backend development.
+This repository is mainly a **learning journal in code** ... a place where I experiment, make mistakes, improve, and document my progress while moving toward professional Java backend development till i find a job in the industry inshallah <3.
