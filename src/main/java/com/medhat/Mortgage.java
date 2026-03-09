@@ -1,50 +1,26 @@
 package com.medhat;
 
 import java.text.NumberFormat;
-import java.util.Scanner;
 
 public class Mortgage {
 
     // Some variables and instances <3
     private static final byte MONTHS_IN_YEAR = 12;
     private static final byte PERCENTAGE = 100;
-    private final Scanner input;
     private final NumberFormat current;
 
     //Constructor
-    public  Mortgage(NumberFormat current , Scanner input){
-        this.input = input;
+    public  Mortgage(NumberFormat current){
         this.current = current;
-        double principal = setValue("Principal: ", 1000, 1_000_000);
-        double rate = setValue("Annual Interest Rate: ", 0, 30);
-        int years = (int) setValue("Period (Years): ", 0, 30);
+        var reader = new Reader();
+        double principal = reader.setValue("Principal: ", 1000, 1_000_000);
+        double rate = reader.setValue("Annual Interest Rate: ", 0, 30);
+        int years = (int) reader.setValue("Period (Years): ", 0, 30);
         mortgageDetails(principal, rate, years);
-        input.close();
+        reader.closeReader();
     }
 
 
-
-    /**
-     * This is a function takes number from user and validate it as if it is between 2 specific numbers or not
-     * @param prompt as a message to display before user enter a number
-     * @param min as minimum to put
-     * @param max as maximum to put
-     * @return double value - returns a double value when it is validated! :'D
-     */
-
-    double setValue(String prompt , double min , double max)
-    {
-        double value;
-        while (true) {
-            System.out.print(prompt);
-            value = input.nextDouble();
-            if (value >= min && value <= max) {
-                break;
-            }
-            System.out.println("Enter a value between " + min + " and " + max);
-        }
-        return value;
-    }
 
     /**
      * I love java docs :D
@@ -75,16 +51,17 @@ public class Mortgage {
     private void mortgageDetails(double principal , double rate, int years){
         double annualInterestRate = (rate / PERCENTAGE) / MONTHS_IN_YEAR;
         short months = (short) (years * MONTHS_IN_YEAR);
-        double payment = 0;
+        double payment;
         System.out.println("\n");
         System.out.println("MORTGAGE");
         System.out.println("------");
         System.out.println(current.format(monthlyPayment(principal, annualInterestRate, months)));
 
+        System.out.println("PAYMENT SCHEDULE");
+        System.out.println("------");
+        System.out.println("\n");
+
         if(annualInterestRate != 0) {
-            System.out.println("PAYMENT SCHEDULE");
-            System.out.println("------");
-            System.out.println("\n");
             for (int i = 1; i <= months; i++) {
                 double powed = Math.pow((1 + annualInterestRate), months);
                 payment = principal * (powed - Math.pow((1 + annualInterestRate), i)) / (powed - 1);
@@ -92,9 +69,6 @@ public class Mortgage {
             }
         }
             else {
-            System.out.println("PAYMENT SCHEDULE");
-            System.out.println("------");
-            System.out.println("\n");
             for (int i = 1; i <= months; i++) {
                 System.out.println(current.format(principal / months));
             }
