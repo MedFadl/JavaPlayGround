@@ -44,6 +44,7 @@ public class Reader {
      *
      */
     public void closeReader(){
+
         input.close();
     }
 
