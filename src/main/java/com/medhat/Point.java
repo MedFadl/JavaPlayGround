@@ -1,5 +1,7 @@
 package com.medhat;
 
+import java.util.Objects;
+
 public class Point {
     int x;
     int y;
@@ -24,6 +26,6 @@ public class Point {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(x,y);
     }
 }
