@@ -10,7 +10,19 @@ public class Listo <T> {
     }
 
     public void add(T obj){
-        list[count++] = obj;
+        if (count < list.length) {
+            list[count++] = obj;
+        } else {
+            System.out.println("Cannot add: The list is currently full.");
+        }
+    }
+
+    public void replace(int index, T obj){
+        if (index >= 0 && index < count) {
+            list[index] = obj;
+        } else {
+            System.out.println("Cannot replace: Index " + index + " is out of bounds.");
+        }
     }
 
     public int len(){
@@ -18,13 +30,15 @@ public class Listo <T> {
     }
 
     public T view(int index){
-        return list[index];
+        if (index >= 0 && index < count) {
+            return list[index];
+        }
+        return null;
     }
 
     public void viewALL(){
-        for(T x : list)
-        {
-            System.out.println(x);
+        for(int i = 0; i < count; i++) {
+            System.out.println(list[i]);
         }
     }
 }
