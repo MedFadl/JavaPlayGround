@@ -1,4 +1,4 @@
-package com.medhat;
+package com.medhat.fundementals;
 
 public interface TaxCalculator
 {

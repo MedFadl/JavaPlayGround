@@ -1,4 +1,4 @@
-package com.medhat;
+package com.medhat.fundementals;
 
 public class TaxCalculator2018 implements TaxCalculator {
     private double taxableIncome;

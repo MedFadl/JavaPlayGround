@@ -1,4 +1,4 @@
-package com.medhat;
+package com.medhat.fundementals;
 
 public class TaxCalculator2019 implements TaxCalculator{
 

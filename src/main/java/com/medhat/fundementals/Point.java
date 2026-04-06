@@ -1,4 +1,4 @@
-package com.medhat;
+package com.medhat.fundementals;
 
 import java.util.Objects;
 
