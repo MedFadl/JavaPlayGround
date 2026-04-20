@@ -7,6 +7,7 @@ public class Greeter {
         printer.print("wow");
     }
 
+//old
     static void show ()
     {
         greet(new Printer() {
@@ -15,5 +16,10 @@ public class Greeter {
                 System.out.println(message);
             }
         });
+    }
+//new
+    static void show2()
+    {
+        greet(message -> System.out.println(message));
     }
 }
