@@ -1,5 +1,6 @@
 package com.medhat;
 
+import com.medhat.functional.ConsolePrinter;
 import com.medhat.generics.Listo;
 
 import java.text.NumberFormat;
@@ -22,6 +23,8 @@ public class Main {
             System.out.println(x);
         }
 
+        new ConsolePrinter().print("Mama MIA");
+        new ConsolePrinter().print();
 
     }
 
