@@ -21,5 +21,7 @@ public class Greeter {
     static void show2()
     {
         greet(message -> System.out.println(message));
+        //weird way, but I think I will try to get used to it in the next iterations of me learning
+        greet(System.out::println);
     }
 }
