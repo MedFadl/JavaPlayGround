@@ -1,13 +1,8 @@
-package com.medhat.functional;
+package com.medhat.lambda;
 
 public class ConsolePrinter implements Printer{
-
-    @Override
-    public void print(String message)
-    {
+@Override
+    public void print(String message) {
         System.out.println(message);
     }
-
-
-
 }

@@ -1,31 +1,12 @@
 package com.medhat;
 
-import com.medhat.functional.ConsolePrinter;
-import com.medhat.generics.Listo;
-
-import java.text.NumberFormat;
-import java.util.List;
-import java.util.Scanner;
+import com.medhat.lambda.Demo;
 
 public class Main {
 
 
     public static void main(String[] args) {
-        Listo<String> ele = new Listo<String>(10);
-        ele.add("a");
-        ele.add("b");
-        ele.add("c");
-        ele.add("d");
-        ele.add("e");
-        ele.view(1);
-        ele.viewALL();
-        for(String x :ele){
-            System.out.println(x);
-        }
-
-        new ConsolePrinter().print("Mama MIA");
-        new ConsolePrinter().print();
-
+        Demo.show();
     }
 
 
