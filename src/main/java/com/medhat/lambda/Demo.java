@@ -3,6 +3,7 @@ package com.medhat.lambda;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class Demo {
@@ -15,6 +16,10 @@ public class Demo {
         Function<String,Integer> map = String::length;
         var length = map.apply("Medhat");
         System.out.println(length);
+        Predicate<String> isLongerThan = (item) -> item.length() > 5;
+        var isLong = isLongerThan.test("Medhat");
+        System.out.println(isLong);
+        System.out.println(isLongerThan.or(item -> item.length() < 5).test("Medhat"));
     }
 
     public static void greet(Printer printer)
