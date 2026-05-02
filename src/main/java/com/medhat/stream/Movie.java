@@ -26,7 +26,9 @@ public class Movie {
 
         movies.stream()
                 .dropWhile(movie -> movie.getLike() == 10)
+                .peek(movie -> System.out.println("filtered : " + movie.getName())) // for debugging and looking what actually happen after dropwhile but still can continue on stream
                 .sorted(Comparator.comparing(Movie::getLike).reversed())
+                .distinct()
                 .forEach(movie -> System.out.println(movie.getName()));
 
 
