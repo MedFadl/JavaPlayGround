@@ -14,5 +14,9 @@ public class Main {
         s.limit(10).forEach(System.out::println);
 
         Stream.iterate(1,n -> n + 1).limit(10).forEach(System.out::println);
+
+
+
+
     }
 }
