@@ -30,7 +30,6 @@ public class Movie {
                 .sorted(Comparator.comparing(Movie::getLike).reversed())
                 .distinct()
                 .forEach(movie -> System.out.println(movie.getName()));
-\
 
     }
 
