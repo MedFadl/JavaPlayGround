@@ -1,10 +1,5 @@
 package com.medhat;
-
-import com.medhat.stream.Movie;
-
-import java.util.List;
 import java.util.stream.Stream;
-
 public class Main {
 
 
@@ -14,8 +9,6 @@ public class Main {
         s.limit(10).forEach(System.out::println);
 
         Stream.iterate(1,n -> n + 1).limit(10).forEach(System.out::println);
-
-
 
 
     }
