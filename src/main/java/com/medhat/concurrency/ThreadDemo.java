@@ -4,14 +4,22 @@ public class ThreadDemo {
     public static void showThread() {
         System.out.println("Thread Demo");
 
+        var status = new DownloadStatus();
+        Thread[] threads = new Thread[10];
 
         for (int i = 0; i < 10; i++) {
-            Thread thread = new Thread(new DownloadTaskFile());
-            thread.start();
+            threads[i] = new Thread(new DownloadTaskFile(status), "Worker-" + i);
+            threads[i].start();
         }
-        //Threads
-        //System.out.println(Thread.activeCount());
-        //System.out.println(Runtime.getRuntime().availableProcessors());
 
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+                System.out.println(thread.getName() + " is ready to be scanned");
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+        System.out.println(status.getTotalBytes());
     }
 }
