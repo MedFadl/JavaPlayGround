@@ -1,6 +1,7 @@
 package com.medhat.concurrency;
 
 public class DownloadTaskFile implements Runnable {
+
     private final DownloadStatus status;
 
     public DownloadTaskFile(DownloadStatus status) {
@@ -16,10 +17,11 @@ public class DownloadTaskFile implements Runnable {
                 System.out.println("Download interrupted: " + Thread.currentThread().getName());
                 return;
             }
+
             status.incrementTotalBytes();
 
             try {
-                Thread.sleep(200);
+                Thread.sleep(1);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 return;

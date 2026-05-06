@@ -1,14 +1,21 @@
 package com.medhat.concurrency;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ThreadDemo {
     public static void showThread() {
         System.out.println("Thread Demo");
 
         var status = new DownloadStatus();
         Thread[] threads = new Thread[10];
+        List<DownloadTaskFile> tasks = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
-            threads[i] = new Thread(new DownloadTaskFile(status), "Worker-" + i);
+            var task = new DownloadTaskFile(status);
+            tasks.add(task);
+
+            threads[i] = new Thread(task, "Worker-" + i);
             threads[i].start();
         }
 
@@ -20,6 +27,7 @@ public class ThreadDemo {
                 Thread.currentThread().interrupt();
             }
         }
-        System.out.println(status.getTotalBytes());
+
+        System.out.println("Total bytes downloaded: " + status.getTotalBytes());
     }
 }
