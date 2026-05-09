@@ -1,6 +1,8 @@
 package com.medhat.concurrency;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class ThreadDemo {
@@ -41,5 +43,11 @@ public class ThreadDemo {
         }
 
         System.out.println("Total bytes downloaded: " + status.getTotalBytes());
+    }
+    public static void threadsCollection () {
+        Collection<Integer> collection = Collections.synchronizedCollection(new ArrayList<Integer>());
+        var thread = new Thread(()->{
+            collection.addAll(List.of(1,2,3,4,5));
+        });
     }
 }
