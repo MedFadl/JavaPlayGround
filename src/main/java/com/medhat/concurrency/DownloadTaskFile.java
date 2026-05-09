@@ -27,7 +27,10 @@ public class DownloadTaskFile implements Runnable {
                 return;
             }
         }
-
+        synchronized (status)
+        {
+            status.notifyAll();
+        }
         System.out.println("Download completed: " + Thread.currentThread().getName());
     }
 }

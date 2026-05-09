@@ -18,6 +18,18 @@ public class ThreadDemo {
             threads[i] = new Thread(task, "Worker-" + i);
             threads[i].start();
         }
+        var task2 = new Thread(()-> {
+            while(!status.status) {
+                synchronized (status) {
+                    try {
+                        status.wait();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        }
+        );
 
         for (Thread thread : threads) {
             try {
