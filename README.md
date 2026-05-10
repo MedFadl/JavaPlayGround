@@ -26,7 +26,7 @@ This repository is used to:
 * Learn how to organize code
 * Build small console-based examples
 * Practice problem solving
-* Try generics, lambdas, streams, and other Java concepts
+* Try generics, lambdas, streams, concurrency, and other Java concepts
 * Prepare myself for Spring Boot and real backend projects
 
 The project will probably look messy sometimes, and that is okay. It is a learning playground, not a polished production application.
@@ -140,10 +140,39 @@ Streams are an important part of modern Java, so this project includes experimen
 * Creating streams
 * Filtering data
 * Mapping data
+* Sorting data
 * Counting results
+* Summing numeric values
+* Grouping data
+* Partitioning data
+* Collecting stream results
 * Generating streams
 * Iterating streams
+* Working with simple model classes
 * Understanding declarative code
+
+---
+
+### Concurrency and Threads
+
+This area is for learning how Java handles multiple tasks running at the same time.
+
+Topics include:
+
+* Creating and running threads
+* Implementing `Runnable`
+* Starting multiple worker threads
+* Using `Thread.currentThread()`
+* Naming threads
+* Joining threads
+* Interrupting threads
+* Simulating download tasks
+* Sharing status between tasks
+* Using `AtomicInteger`
+* Practicing basic synchronization
+* Using `wait()` and `notifyAll()`
+* Understanding thread-safe collections
+* Preparing for deeper concurrency concepts
 
 ---
 
@@ -165,7 +194,7 @@ Examples include:
 ---
 ## Current Project Structure
 
-```
+```text
 JavaPlayGround/
 ├─ pom.xml
 ├─ README.md
@@ -175,6 +204,10 @@ JavaPlayGround/
 │     │  └─ com/
 │     │     └─ medhat/
 │     │        ├─ Main.java
+│     │        ├─ concurrency/
+│     │        │  ├─ DownloadStatus.java
+│     │        │  ├─ DownloadTaskFile.java
+│     │        │  └─ ThreadDemo.java
 │     │        ├─ fundementals/
 │     │        │  ├─ Mortgage.java
 │     │        │  ├─ Point.java
@@ -190,12 +223,14 @@ JavaPlayGround/
 │     │        │  ├─ Demo.java
 │     │        │  └─ Printer.java
 │     │        └─ stream/
+│     │           ├─ Genre.java
 │     │           └─ Movie.java
 │     └─ resources/
 │        └─ META-INF/
 │           └─ MANIFEST.MF
 └─ out/
 ```
+
 ---
 
 ## Folder Overview
@@ -205,6 +240,22 @@ JavaPlayGround/
 The main Java package for the project.
 
 This contains the entry point and different learning packages.
+
+---
+
+### `concurrency`
+
+This package contains practice code for Java concurrency and thread basics.
+
+It includes examples related to:
+
+* Running multiple threads
+* Simulating download tasks
+* Tracking shared download status
+* Counting downloaded bytes safely
+* Practicing synchronization
+* Waiting for thread completion
+* Preparing for more advanced concurrency topics later
 
 ---
 
@@ -238,6 +289,17 @@ This package contains practice with lambda expressions and functional interfaces
 
 The goal is to become comfortable with modern Java syntax and functional-style programming.
 
+It includes examples related to:
+
+* Functional interfaces
+* Lambda expressions
+* Method references
+* `Consumer`
+* `Supplier`
+* `Function`
+* `Predicate`
+* Passing behavior as an argument
+
 ---
 
 ### `stream`
@@ -245,6 +307,17 @@ The goal is to become comfortable with modern Java syntax and functional-style p
 This package contains practice with Java Streams.
 
 The goal is to understand how to process data in a cleaner and more declarative way.
+
+It includes examples related to:
+
+* Filtering movies
+* Sorting by likes
+* Counting results
+* Calculating totals
+* Grouping movies by genre
+* Partitioning movies by conditions
+* Using collectors
+* Practicing with simple model classes and enums
 
 ---
 
@@ -282,6 +355,9 @@ I am working on:
 * Generics
 * Lambdas
 * Streams
+* Basic concurrency
+* Threads
+* Synchronization basics
 * Code organization
 * Small practice projects
 
@@ -299,6 +375,7 @@ After becoming more comfortable with core Java, I plan to focus on:
 * Debugging
 * Cleaner project structure
 * Refactoring
+* More advanced concurrency concepts
 
 ---
 
