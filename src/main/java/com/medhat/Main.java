@@ -17,7 +17,5 @@ public class Main {
         //new Movie();
         //showThread();
         ExecutorsDemo.show();
-
-
     }
 }
