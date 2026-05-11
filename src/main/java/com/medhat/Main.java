@@ -1,5 +1,6 @@
 package com.medhat;
 import com.medhat.ExcutiveFramework.ExecutorsDemo;
+import com.medhat.ExcutiveFramework.MailService;
 import com.medhat.concurrency.DownloadTaskFile;
 import com.medhat.generics.Listo;
 import com.medhat.stream.Movie;
@@ -16,6 +17,9 @@ public class Main {
         //Stream.iterate(1,n -> n + 1).limit(10).forEach(System.out::println);
         //new Movie();
         //showThread();
-        ExecutorsDemo.show();
+        //ExecutorsDemo.show();
+        MailService mailService = new MailService();
+        mailService.sendMail();
+        System.out.println("Test");
     }
 }
