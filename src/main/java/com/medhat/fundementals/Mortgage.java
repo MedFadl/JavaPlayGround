@@ -4,6 +4,16 @@ import java.text.NumberFormat;
 
 public class Mortgage {
 
+
+
+
+
+
+
+
+
+
+
     // Some variables and instances <3
     private static final byte MONTHS_IN_YEAR = 12;
     private static final byte PERCENTAGE = 100;
