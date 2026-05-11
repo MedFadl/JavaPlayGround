@@ -19,7 +19,12 @@ public class Main {
         //showThread();
         //ExecutorsDemo.show();
         MailService mailService = new MailService();
-        mailService.sendMail();
+        mailService.sendAsyncMail();
         System.out.println("Test");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

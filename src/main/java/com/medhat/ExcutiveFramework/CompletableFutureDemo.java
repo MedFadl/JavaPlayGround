@@ -5,7 +5,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 import java.util.function.Supplier;
 
-public class CompleteableFutureDemo {
+public class CompletableFutureDemo {
     public static void show() {
         ForkJoinPool.commonPool(); //default pool so we need to identify the pool we need  (based on number of available processors)
         Runnable task = () -> System.out.println("Hello");
