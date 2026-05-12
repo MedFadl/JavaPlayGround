@@ -1,6 +1,7 @@
 package com.medhat.ExcutiveFramework;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 import java.util.function.Supplier;
@@ -19,5 +20,19 @@ public class CompletableFutureDemo {
             throw new RuntimeException(e);
         }
         System.out.println("Result: " + result);
+    }
+
+    public static void show2() {
+        var future = CompletableFuture.supplyAsync(()-> 1);
+        future.thenRunAsync(() -> { // it will run on the thread commonpool
+            //thenRun is similar to thenAccept but will run on main thread
+            System.out.println(Thread.currentThread().getName());
+            System.out.println("Task completed");
+        }); // CompletionStage
+
+        future.thenAccept(result -> System.out.println(result)); //main thread and thenAcceptAsync will run on the coomon pool but we need to wait
+
+
+
     }
 }
