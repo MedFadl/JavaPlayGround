@@ -45,7 +45,7 @@ public class CompletableFutureDemo {
         });
 
         try {
-            var wa = future.exceptionally(ex -> 1).get()
+            var wa = future.exceptionally(ex -> 1).get();
             // gets the exception to the main thread as it runs in a different
             System.out.println(wa);
             //it returns a default value if ex is thrown , it is a new CompletableFuiture.
@@ -53,6 +53,34 @@ public class CompletableFutureDemo {
             e.getCause().printStackTrace();
             throw new RuntimeException(e);
         }
+    }
+
+    public static int toFeh(int cel)
+    {
+        return (int) (cel *1.8)+32;
+    }
+
+    public static void show4() {
+        var future = CompletableFuture.supplyAsync(()->20);
+        var result = future.thenApply(CompletableFutureDemo::toFeh)
+                .thenAccept(System.out::println);
+
+
+    }
+
+    public static CompletionStage<String> getEmailAsync() {
+        return CompletableFuture.supplyAsync(()->"email");
+    }
+
+    public static CompletionStage<String> getPlaylistAsync(String email) {
+        return CompletableFuture.supplyAsync(()->"playlist");
+    }
+    public static void show5() {
+        //run task after task
+       getEmailAsync()
+               .thenCompose(CompletableFutureDemo::getPlaylistAsync)
+               .thenAccept(System.out::println);
+
     }
 
 }
