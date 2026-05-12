@@ -94,5 +94,36 @@ public class CompletableFutureDemo {
                 .thenAccept(System.out::println);
 
     }
+    public static void show7(){
+        var first = CompletableFuture.supplyAsync(()->1);
+        var second = CompletableFuture.supplyAsync(()->2);
+        var third = CompletableFuture.supplyAsync(()->3);
+
+        var all = CompletableFuture.allOf(first,second,third);
+        all.thenRun(()->{
+            try {
+                var fr = first.get();
+                System.out.println(fr);
+            } catch (InterruptedException | ExecutionException e) {
+                throw new RuntimeException(e);
+            }
+            System.out.println("All tasks completed");
+        });
+    }
+
+    public static void show8(){
+        var first = CompletableFuture.supplyAsync(()->{
+            LongTask.simulate();
+            return 20;
+
+        });
+
+        var second = CompletableFuture.supplyAsync(()->{
+            return 30;
+        });
+
+        var fastest = CompletableFuture.anyOf(first,second).thenAccept(System.out::println);
+
+    }
 
 }
