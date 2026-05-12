@@ -1,4 +1,4 @@
-#  javaPlayGround
+# JavaPlayGround
 
 > **Note**
 >
@@ -26,7 +26,8 @@ This repository is used to:
 * Learn how to organize code
 * Build small console-based examples
 * Practice problem solving
-* Try generics, lambdas, streams, concurrency, and other Java concepts
+* Try generics, lambdas, streams, concurrency, and asynchronous programming
+* Learn the Executor Framework and `CompletableFuture`
 * Prepare myself for Spring Boot and real backend projects
 
 The project will probably look messy sometimes, and that is okay. It is a learning playground, not a polished production application.
@@ -56,15 +57,40 @@ My path is:
 
 ---
 
-## What I Am Learning Here
+## What I Have Covered So Far
 
-This playground currently focuses on several Java learning areas.
+So far, this project includes practice and experiments with:
 
-### Java Fundamentals
+* Java fundamentals
+* Object-oriented programming
+* Interfaces and polymorphism
+* Generics
+* Lambda expressions
+* Functional interfaces
+* Java Streams
+* Basic concurrency
+* Threads
+* Shared state between threads
+* Synchronization basics
+* Atomic variables
+* `wait()` and `notifyAll()`
+* Executor Framework basics
+* Thread pools
+* Callable tasks
+* Futures
+* Asynchronous programming with `CompletableFuture`
+* Simulating long-running tasks
+* Combining async operations
+* Small console-based practice programs
+* Maven-based Java project structure
+
+---
+
+## Java Fundamentals
 
 I use this project to strengthen the basics before jumping too fast into frameworks.
 
-Topics include:
+Topics covered include:
 
 * Variables
 * Data types
@@ -79,14 +105,15 @@ Topics include:
 * Static members
 * Packages
 * Basic input and output
+* Separating logic into smaller classes
 
 ---
 
-### Object-Oriented Programming
+## Object-Oriented Programming
 
 A big part of this repository is learning how to think in objects and structure code in a better way.
 
-Topics include:
+Topics covered include:
 
 * Encapsulation
 * Abstraction
@@ -100,26 +127,26 @@ Topics include:
 
 ---
 
-### Generics and Collections
+## Generics and Collections
 
 This area is for understanding how Java handles reusable and type-safe code.
 
-Topics include:
+Topics covered include:
 
 * Generic classes
 * Type parameters
 * Iteration
 * Custom iterable objects
 * Collection-like behavior
-* Preparing for deeper use of Java Collections Framework
+* Preparing for deeper use of the Java Collections Framework
 
 ---
 
-### Functional Programming in Java
+## Functional Programming in Java
 
 This part helps me understand modern Java style and how to write cleaner operations on data.
 
-Topics include:
+Topics covered include:
 
 * Lambda expressions
 * Method references
@@ -128,12 +155,12 @@ Topics include:
 * `Supplier`
 * `Function`
 * `Predicate`
-* Stream basics
-* Declarative programming
+* Passing behavior as an argument
+* Declarative programming style
 
 ---
 
-### Streams
+## Streams
 
 Streams are an important part of modern Java, so this project includes experiments with:
 
@@ -153,11 +180,11 @@ Streams are an important part of modern Java, so this project includes experimen
 
 ---
 
-### Concurrency and Threads
+## Concurrency and Threads
 
 This area is for learning how Java handles multiple tasks running at the same time.
 
-Topics include:
+Topics covered include:
 
 * Creating and running threads
 * Implementing `Runnable`
@@ -176,7 +203,30 @@ Topics include:
 
 ---
 
-### Small Console Applications
+## Executor Framework and Asynchronous Programming
+
+This area is for learning a more modern and practical way to work with concurrent tasks in Java.
+
+Topics covered include:
+
+* Creating executor services
+* Running tasks using thread pools
+* Understanding why thread pools are better than manually creating many threads
+* Submitting tasks
+* Working with `Future`
+* Practicing `Callable`
+* Simulating long-running tasks
+* Understanding blocking vs non-blocking operations
+* Using `CompletableFuture`
+* Running asynchronous tasks
+* Chaining async operations
+* Combining async results
+* Simulating services like mail sending and flight quote fetching
+* Preparing for real backend async workflows
+
+---
+
+## Small Console Applications
 
 Some parts of this repository are small console-based programs.
 
@@ -192,6 +242,7 @@ Examples include:
 * Practicing simple program flow
 
 ---
+
 ## Current Project Structure
 
 ```text
@@ -208,14 +259,14 @@ JavaPlayGround/
 │     │        │  ├─ DownloadStatus.java
 │     │        │  ├─ DownloadTaskFile.java
 │     │        │  └─ ThreadDemo.java
+│     │        ├─ ExcutiveFramework/
+│     │        │  ├─ CompletableFutureDemo.java
+│     │        │  ├─ ExecutorsDemo.java
+│     │        │  ├─ FlightQuote.java
+│     │        │  ├─ FlightService.java
+│     │        │  ├─ LongTask.java
+│     │        │  └─ MailService.java
 │     │        ├─ fundementals/
-│     │        │  ├─ Mortgage.java
-│     │        │  ├─ Point.java
-│     │        │  ├─ Reader.java
-│     │        │  ├─ TaxCalculator.java
-│     │        │  ├─ TaxCalculator2018.java
-│     │        │  ├─ TaxCalculator2019.java
-│     │        │  └─ TaxReport.java
 │     │        ├─ generics/
 │     │        │  └─ Listo.java
 │     │        ├─ lambda/
@@ -226,8 +277,6 @@ JavaPlayGround/
 │     │           ├─ Genre.java
 │     │           └─ Movie.java
 │     └─ resources/
-│        └─ META-INF/
-│           └─ MANIFEST.MF
 └─ out/
 ```
 
@@ -256,6 +305,24 @@ It includes examples related to:
 * Practicing synchronization
 * Waiting for thread completion
 * Preparing for more advanced concurrency topics later
+
+---
+
+### `ExcutiveFramework`
+
+This package contains practice code for the Executor Framework and asynchronous programming.
+
+It includes examples related to:
+
+* Executor services
+* Thread pools
+* Long-running tasks
+* Futures
+* `CompletableFuture`
+* Async task execution
+* Combining async results
+* Simulating external services
+* Practicing backend-style asynchronous workflows
 
 ---
 
@@ -310,12 +377,12 @@ The goal is to understand how to process data in a cleaner and more declarative 
 
 It includes examples related to:
 
-* Filtering movies
-* Sorting by likes
+* Filtering data
+* Sorting data
 * Counting results
 * Calculating totals
-* Grouping movies by genre
-* Partitioning movies by conditions
+* Grouping data
+* Partitioning data by conditions
 * Using collectors
 * Practicing with simple model classes and enums
 
@@ -358,8 +425,33 @@ I am working on:
 * Basic concurrency
 * Threads
 * Synchronization basics
+* Executor Framework
+* `CompletableFuture`
 * Code organization
 * Small practice projects
+
+---
+
+### Completed / Practiced So Far
+
+I have already practiced the following areas in this repository:
+
+* Java fundamentals
+* Basic OOP
+* Interfaces and polymorphism
+* Generics basics
+* Lambda expressions
+* Functional interfaces
+* Stream operations
+* Thread basics
+* Shared state in concurrent code
+* Atomic counters
+* Synchronization basics
+* Executor services
+* Futures
+* Completable futures
+* Simple async simulations
+* Basic Maven project structure
 
 ---
 
@@ -368,14 +460,15 @@ I am working on:
 After becoming more comfortable with core Java, I plan to focus on:
 
 * Exception handling
-* Java Collections Framework
+* Java Collections Framework in more depth
 * File handling
-* Maven
+* Maven in more depth
 * Unit testing
 * Debugging
 * Cleaner project structure
 * Refactoring
 * More advanced concurrency concepts
+* Better naming and package organization
 
 ---
 
