@@ -35,4 +35,24 @@ public class CompletableFutureDemo {
 
 
     }
+
+    public static void show3() {
+        var future = CompletableFuture.supplyAsync(()->
+        {
+            System.out.println("Getting wow wa");
+            throw new IllegalStateException();
+
+        });
+
+        try {
+            var wa = future.exceptionally(ex -> 1).get()
+            // gets the exception to the main thread as it runs in a different
+            System.out.println(wa);
+            //it returns a default value if ex is thrown , it is a new CompletableFuiture.
+        } catch (InterruptedException | ExecutionException e) {
+            e.getCause().printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
 }
