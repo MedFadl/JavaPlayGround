@@ -82,5 +82,17 @@ public class CompletableFutureDemo {
                .thenAccept(System.out::println);
 
     }
+    public static void show6()
+    {
+        var first = CompletableFuture.supplyAsync(()->"20USD").thenApply(str->{
+            str.replace("USD","");
+            return Integer.parseInt(str);
+        });
+        var second = CompletableFuture.supplyAsync(()->50);
+
+        first.thenCombine(second, (price,exchange) -> price*exchange)
+                .thenAccept(System.out::println);
+
+    }
 
 }
