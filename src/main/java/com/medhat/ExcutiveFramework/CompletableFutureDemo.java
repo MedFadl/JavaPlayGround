@@ -1,10 +1,8 @@
 package com.medhat.ExcutiveFramework;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.CompletionStage;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.*;
 import java.util.function.Supplier;
+
 
 public class CompletableFutureDemo {
     public static void show() {
@@ -126,4 +124,30 @@ public class CompletableFutureDemo {
 
     }
 
+
+    public static void show9(){
+        var task = CompletableFuture.supplyAsync(()->
+        {
+            LongTask.simulate();
+           return 1;
+        });
+
+        task.completeOnTimeout(5,5, TimeUnit.SECONDS);
+
+    }
+
+    public static void executorQuiz()
+    {
+        var flight = new FlightService();
+        flight.getQuotes(new String[]{"a.com", "b.com" , "c.com"})
+                .stream()
+                .map(future -> future.thenAccept(System.out::println))
+                .toList();
+
+        try {
+            Thread.sleep(10_000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

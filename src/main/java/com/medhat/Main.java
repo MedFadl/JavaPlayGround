@@ -1,4 +1,5 @@
 package com.medhat;
+import com.medhat.ExcutiveFramework.CompletableFutureDemo;
 import com.medhat.ExcutiveFramework.ExecutorsDemo;
 import com.medhat.ExcutiveFramework.MailService;
 import com.medhat.concurrency.DownloadTaskFile;
@@ -26,5 +27,7 @@ public class Main {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
+        CompletableFutureDemo.executorQuiz();
     }
 }
